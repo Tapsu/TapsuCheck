@@ -12,7 +12,7 @@ local KUOLEMATLOGI 		= "https://discordapp.com/api/webhooks/665258612536377394/0
 local PALVELUAMMATTI	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Palveluammatit
 -- Tiedot --
 local DISCORD_NAME 		= "TapsCheck"							-- Webhookin nimi
-local STEAM_KEY 		= "010C27BA4587AD82E34E6A91AF623B89"  	-- Tarvitaan steam kuvan saamiseksi chatlogeissa: https://steamcommunity.com/dev/apikey
+local STEAM_KEY 		= ""  	-- Tarvitaan steam kuvan saamiseksi chatlogeissa: https://steamcommunity.com/dev/apikey
 local DISCORD_IMAGE 	= "https://i.imgur.com/a83t8Fj.png"		-- Kuva webhookkiin
 
 PerformHttpRequest(CONNECTITLOGI, function(err, text, headers) end, 'POST', json.encode({username = DISCORD_NAME, content = "TapsCheck - Käynnissä -> **Logit toiminnassa**", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
