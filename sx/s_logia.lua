@@ -151,7 +151,25 @@ AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
 		end
 		
 		if hyvaksytty == true or poikkeuslistalla == true then	
-			if whitelisted then
+
+			-- Whitelistaa pelaajan yhdistäessä serverille automaattisesti !!!!!!
+		--[[ 
+					if identifierSteam ~= "EI OLE" then
+						MySQL.Async.fetchAll('SELECT * FROM whitelist WHERE identifier = @identifier', {
+							['@identifier'] = identifierSteam
+						}, function(result)
+							if result[1] == nil then
+								MySQL.Async.execute('INSERT INTO whitelist (identifier) VALUES (@identifier)', {
+									['@identifier'] = identifierSteam
+								}, function (rowsChanged)
+									print(identifierSteam.." whitelisttu automaattisesti")
+								end)
+							end
+						end)
+					end
+		 ]]
+		
+					if whitelisted then
 				YHISTYSSERVILLE("Yhdistää serverille", '```css\n' .. nimi .. ' yhdistää serville \nIP: ' .. ip .. ' \nMaa: ' .. response .. ' \nDiscordID: ' .. Discord .. ' \nHex: ' .. Steam .. ' \nLisenssi: ' .. Rockstar .. '\n```', 65280)
 				deferrals.done()
 			else
@@ -363,25 +381,20 @@ function PALVELUAON(name, message, color)
 end
 
 -- LOGITTETTAVAT ASIAT --
-RegisterServerEvent("esx:giveitemalert")
+
+
+-- Esimerkki 
+
+--[[ RegisterServerEvent("esx:giveitemalert")
 AddEventHandler("esx:giveitemalert", function(name,nametarget,itemname,amount)
 	ITEMITRAHATLOGI("Tavaran anto", name.." -> "..nametarget.." Tavara: ["..itemname.." x "..amount.."]", 15130112)
-end)
+end) ]]
 
-RegisterServerEvent("esx:giveweaponalert")
-AddEventHandler("esx:giveweaponalert", function(name,nametarget,weaponlabel)
-	ITEMITRAHATLOGI("Aseen anto", name.." -> "..nametarget.." Ase: ["..weaponlabel.."]", 15130112)
-end)
 
-RegisterServerEvent("esx:givemoneyalert")
-AddEventHandler("esx:givemoneyalert", function(name,nametarget,amount)
-	ITEMITRAHATLOGI("Rahan anto", name.." -> "..nametarget.." Käteinen: ["..amount.."€]", 15130112)
-end)
 
-RegisterServerEvent("esx:giveaccountmoneyalert")
-AddEventHandler("esx:giveaccountmoneyalert", function(name,nametarget,amount,itemname)
-	ITEMITRAHATLOGI("Tilisiirto", name.." -> "..nametarget.." "..itemname..": ["..amount.."€]", 15130112)
-end)
+
+
+
 
 -- KOMENNOT --
 TriggerEvent('es:addGroupCommand', 'wlpaivitys', 'admin', function (source, args, user)
