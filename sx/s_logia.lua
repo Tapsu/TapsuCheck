@@ -2,17 +2,21 @@
 --    Muokkaa rivit:   --
 --		 15 & 27	   --
 -------------------------
+-- Tarvii abu? Discord = Tapsu#0017
+
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
--- Webhookit --
+-- Webhookit (valmiina) --
 local CHATLOGI 			= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Tekstit
-local ITEMILOGI 		= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Tavarat-rahat
 local CONNECTITLOGI 	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Connectit
 local KUOLEMATLOGI 		= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Kuolemat
 local PALVELUAMMATTI	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Palveluammatit
+-- Omat webhookit
+--  local asia = "https://discrodapp.com/" -- Esimerkki
+
 -- Tiedot --
 local DISCORD_NAME 		= "TapsCheck"							-- Webhookin nimi
-local STEAM_KEY 		= ""  	-- Tarvitaan steam kuvan saamiseksi chatlogeissa: https://steamcommunity.com/dev/apikey
+local STEAM_KEY 		= ""  									-- Tarvitaan steam kuvan saamiseksi chatlogeissa: https://steamcommunity.com/dev/apikey
 local DISCORD_IMAGE 	= "https://i.imgur.com/a83t8Fj.png"		-- Kuva webhookkiin
 
 PerformHttpRequest(CONNECTITLOGI, function(err, text, headers) end, 'POST', json.encode({username = DISCORD_NAME, content = "TapsCheck - Käynnissä -> **Logit toiminnassa**", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
@@ -151,25 +155,8 @@ AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
 		end
 		
 		if hyvaksytty == true or poikkeuslistalla == true then	
-
-			-- Whitelistaa pelaajan yhdistäessä serverille automaattisesti !!!!!!
-		--[[ 
-					if identifierSteam ~= "EI OLE" then
-						MySQL.Async.fetchAll('SELECT * FROM whitelist WHERE identifier = @identifier', {
-							['@identifier'] = identifierSteam
-						}, function(result)
-							if result[1] == nil then
-								MySQL.Async.execute('INSERT INTO whitelist (identifier) VALUES (@identifier)', {
-									['@identifier'] = identifierSteam
-								}, function (rowsChanged)
-									print(identifierSteam.." whitelisttu automaattisesti")
-								end)
-							end
-						end)
-					end
-		 ]]
 		
-					if whitelisted then
+			if whitelisted then
 				YHISTYSSERVILLE("Yhdistää serverille", '```css\n' .. nimi .. ' yhdistää serville \nIP: ' .. ip .. ' \nMaa: ' .. response .. ' \nDiscordID: ' .. Discord .. ' \nHex: ' .. Steam .. ' \nLisenssi: ' .. Rockstar .. '\n```', 65280)
 				deferrals.done()
 			else
