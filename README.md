@@ -1,10 +1,11 @@
 TapsCheck
 ------------------------------
 MITÄ TEEN?!
+
 Muokkaa rivit:
--- Rivit 12-15 Omat webhookit
--- Rivi: 33: Pelaajamäärä
--- Rivi: 159: Automaattinen whitelistaus päälle, jos niin haluat
+1. Rivit 12-15 Omat webhookit
+2. Rivi: 33: Pelaajamäärä
+3. Rivi: 159: Automaattinen whitelistaus päälle, jos niin haluat
 ------------------------------
 MITEN SAAN LOGITETTAVIA ASIOITA?!
 
