@@ -2,6 +2,8 @@
 --    Muokkaa rivit:   --
 --		 15 & 27	   --
 -------------------------
+-- Rivi: 159: Automaattinen whitelistaus
+
 -- Tarvii abu? Discord = Tapsu#0017
 
 ESX = nil
@@ -156,6 +158,19 @@ AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
 		
 		if hyvaksytty == true or poikkeuslistalla == true then	
 		
+		-- Whitelistaa pelaajan yhdistäessä serverille
+ --[[ 
+			if Steam ~= "EI OLE" then
+				MySQL.Async.fetchAll('SELECT * FROM whitelist WHERE identifier = @identifier', {['@identifier'] = Steam }, function(result)
+					if result[1] == nil then
+						MySQL.Async.execute('INSERT INTO whitelist (identifier) VALUES (@identifier)', { ['@identifier'] = Steam }, function (rowsChanged)
+							print(Steam.." whitelisttu automaattisesti") -- Lisätään pelaaja "whitelistille"
+							loadWhiteList() -- Ladataan "whitelisti" lisäämisen jälkeen
+						end)
+					end
+				end)
+			end
+ ]]
 			if whitelisted then
 				YHISTYSSERVILLE("Yhdistää serverille", '```css\n' .. nimi .. ' yhdistää serville \nIP: ' .. ip .. ' \nMaa: ' .. response .. ' \nDiscordID: ' .. Discord .. ' \nHex: ' .. Steam .. ' \nLisenssi: ' .. Rockstar .. '\n```', 65280)
 				deferrals.done()
