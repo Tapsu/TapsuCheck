@@ -1,18 +1,18 @@
----------[ HOX ]---------
---    Muokkaa rivit:   --
---		 15 & 27	   --
--------------------------
--- Rivi: 159: Automaattinen whitelistaus
+-- 			MUOKATTAVAA!! 				--		
+------------------------------------------
+-- Rivit 12-15 Omat webhookit
+-- Rivi: 33: Pelaajamäärä
+-- Rivi: 159: Automaattinen whitelistaus päälle, jos niin haluat
 
 -- Tarvii abu? Discord = Tapsu#0017
 
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 -- Webhookit (valmiina) --
-local CHATLOGI 			= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Tekstit
-local CONNECTITLOGI 	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Connectit
-local KUOLEMATLOGI 		= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Kuolemat
-local PALVELUAMMATTI	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Discordissa: #Palveluammatit
+local CHATLOGI 			= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Nimensä mukaan chat viestit
+local CONNECTITLOGI 	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Nimensä mukaan servulle liittymiset/poistumiset
+local KUOLEMATLOGI 		= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Nimensä mukaan kuolemat
+local PALVELUAMMATTI	= "https://discordapp.com/api/webhooks/665258612536377394/0wuPH5sPG200G9MVSYPeWF-W-Es2_wbN4hQUdUlcQpPDfxrn32VbX5IwkCYsp4ZdmXTq" -- Ns. Serverin status, paljonko pelaajia, poliiseja jne
 -- Omat webhookit
 --  local asia = "https://discrodapp.com/" -- Esimerkki
 
