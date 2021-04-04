@@ -1,4 +1,4 @@
-local perse = 0
+local kuolema = 0
 Citizen.CreateThread(function()
 	local KuolemanSyy, Killer, DeathCauseHash, Weapon
 	while true do
@@ -50,17 +50,10 @@ Citizen.CreateThread(function()
 					KuolemanSyy = 'killed'
 				end
 			end
-			if perse == 1 then
-				TriggerServerEvent('TapsCheck:PelaajanKuolema', GetPlayerName(PlayerId()) .. ' kirjoitti /die ja menehtyi')
-			elseif perse == 2 then
-				TriggerServerEvent('TapsCheck:PelaajanKuolema', GetPlayerName(PlayerId()) .. ' on palautettu kuolleeksi automaattisesti')
-				Citizen.Wait(30000)
-			else
 				if KuolemanSyy == 'committed suicide' or KuolemanSyy == 'died' then
 					TriggerServerEvent('TapsCheck:PelaajanKuolema', GetPlayerName(PlayerId()) .. ' ' .. KuolemanSyy .. '.', Weapon)
 				else
 					TriggerServerEvent('TapsCheck:PelaajanKuolema', GetPlayerName(Killer) .. ' ' .. KuolemanSyy .. ' ' .. GetPlayerName(PlayerId()) .. '.', Weapon)
-				end
 			end
 			Killer = nil
 			KuolemanSyy = nil
@@ -71,20 +64,6 @@ Citizen.CreateThread(function()
 			Citizen.Wait(0)
 		end
 	end
-end)
-
-RegisterNetEvent('es_admin:kill')
-AddEventHandler('es_admin:kill', function()
-	perse = 1
-	Citizen.Wait(1000)
-	perse = 0
-end)
-
-RegisterNetEvent('esx_ambulancejob:requestDeath')
-AddEventHandler('esx_ambulancejob:requestDeath', function()
-	perse = 2
-	Citizen.Wait(60000)
-	perse = 0
 end)
 
 function IsMelee(Weapon)
