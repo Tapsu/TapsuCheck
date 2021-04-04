@@ -6,7 +6,7 @@ Muokkaa rivit:
 1. Rivit 10-13: Laita omat webhookit
 2. Rivi: 30: 	Serverin pelaajamäärä
 ------------------------------
-https://i.imgur.com/8wnegLn.png
+https://i.imgur.com/IecsTbd.png
 ------------------------------
 MITEN SAAN LOGITETTAVIA ASIOITA?!
 
