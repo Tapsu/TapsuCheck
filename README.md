@@ -6,6 +6,8 @@ Muokkaa rivit:
 1. Rivit 10-13: Laita omat webhookit
 2. Rivi: 30: 	Serverin pelaajamäärä
 ------------------------------
+https://i.imgur.com/8wnegLn.png
+------------------------------
 MITEN SAAN LOGITETTAVIA ASIOITA?!
 
 1. Aloitetaan TapsuCheckistä
